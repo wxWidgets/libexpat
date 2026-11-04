@@ -250,8 +250,8 @@ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/expat.pc.in \
 	$(top_srcdir)/conftools/ltmain.sh \
 	$(top_srcdir)/conftools/missing AUTHORS COPYING README.md \
 	conftools/ar-lib conftools/compile conftools/config.guess \
-	conftools/config.sub conftools/install-sh conftools/ltmain.sh \
-	conftools/missing
+	conftools/config.sub conftools/depcomp conftools/install-sh \
+	conftools/ltmain.sh conftools/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -336,12 +336,10 @@ ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 ETAGS = @ETAGS@
 EXEEXT = @EXEEXT@
-EXPAT_ATTR_INFO = @EXPAT_ATTR_INFO@
 EXPAT_CHAR_TYPE = @EXPAT_CHAR_TYPE@
 EXPAT_CONTEXT_BYTES = @EXPAT_CONTEXT_BYTES@
 EXPAT_DTD = @EXPAT_DTD@
 EXPAT_LARGE_SIZE = @EXPAT_LARGE_SIZE@
-EXPAT_MIN_SIZE = @EXPAT_MIN_SIZE@
 EXPAT_NS = @EXPAT_NS@
 FGREP = @FGREP@
 FILECMD = @FILECMD@
@@ -396,7 +394,6 @@ SO_PATCH = @SO_PATCH@
 STRIP = @STRIP@
 VERSION = @VERSION@
 VSCRIPT_LDFLAGS = @VSCRIPT_LDFLAGS@
-_EXPAT_COMMENT_ATTR_INFO = @_EXPAT_COMMENT_ATTR_INFO@
 _EXPAT_COMMENT_DTD_OR_GE = @_EXPAT_COMMENT_DTD_OR_GE@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
