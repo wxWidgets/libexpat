@@ -95,7 +95,7 @@ jobs:
         if [[ ${wine_packages} =~ :i386 ]]; then
             dpkg --add-architecture i386
         fi
-        apt-get update
+        timeout 10m apt-get update
         timeout 10m apt-get install --yes --no-install-recommends -V \
             ca-certificates \
             cmake \
@@ -110,8 +110,8 @@ jobs:
 
     - name: Install build dependencies (Clang-based MinGW toolchain)
       run: |-
-        version=20260908  # with LLVM/Clang 23.1.1
-        sha256sum=2258c745e3155870c80793f3e8c80b28fbde11b9ff73c4c78783635b3440b092
+        version=20261020  # with LLVM/Clang 23.1.4
+        sha256sum=55064b60b991a1e1e8090b8c2f84e82b22cfe5903d12c159d65064cf5e8ae335
 
         dirname="llvm-mingw-${version}-ucrt-ubuntu-22.04-x86_64"
         tarball="${dirname}.tar.xz"

@@ -70,8 +70,7 @@ jobs:
         set -x
         source /etc/os-release
         wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-        sudo add-apt-repository "deb https://apt.llvm.org/${UBUNTU_CODENAME}/ llvm-toolchain-${UBUNTU_CODENAME}-23 main"
-        sudo apt-get update  # due to new repository
+        sudo timeout 10m add-apt-repository "deb https://apt.llvm.org/${UBUNTU_CODENAME}/ llvm-toolchain-${UBUNTU_CODENAME}-23 main"
         sudo timeout 10m apt-get install --yes --no-install-recommends -V \
             clang-23 \
             libclang-rt-23-dev \
@@ -109,7 +108,7 @@ jobs:
         )
         cmake "${args[@]}" -S . -B .
 
-    - uses: vapier/coverity-scan-action@1b6fd4eaba6651aa354c9ea7f48caa1710b4e12e  # v1.9.0
+    - uses: vapier/coverity-scan-action@8fe7b0af23cbbd4eced5f63dcd2384640eaa5d49  # v1.10.0
       with:
         email: ${{ secrets.COVERITY_SCAN_EMAIL }}
         token: ${{ secrets.COVERITY_SCAN_TOKEN }}
@@ -120,7 +119,7 @@ jobs:
         description: "coverity-scan-action libexpat/libexpat / ${{ steps.determine_version.outputs.git_commit }}"
 
     - name: Offer analysis tarball for inspection
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
       with:
         name: expat_coverity_scan_upload_${{ github.sha }}
         path: expat/cov-int.tgz
