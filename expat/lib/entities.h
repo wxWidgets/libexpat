@@ -34,7 +34,7 @@
 #if ! defined(EXPAT_ENTITIES_H)
 #  define EXPAT_ENTITIES_H 1
 
-#  include "expat_config.h"   // for XML_GE
+#  include "wxconfig.h"       // for XML_GE
 #  include "expat_external.h" // for XML_Char
 #  include "internal.h"       // for XML_NONTESTING_STATIC
 #  include <stdbool.h>        // for size_t
